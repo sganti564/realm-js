@@ -47,6 +47,8 @@ std::string default_realm_file_directory()
                                                         error:nil];
     }
 #endif
+    [[NSFileManager defaultManager] setAttributes:@{NSFileProtectionKey: NSFileProtectionNone}
+                                     ofItemAtPath:path error:nil];
     return std::string(path.UTF8String);
 }
 
